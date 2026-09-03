@@ -18,12 +18,12 @@ public class MemberRepository {
         em.persist(member);  //jpa가 해당 멤버를 저장하는 로직을 해줌
     }
 
-    public Member findOne(Long id) {  // 회원 단건 조회
-        return em.find(Member.class, id);
+    public List<Member> findAll() {  // 모든 회원 조회
+        return em.createQuery("select m from Member m", Member.class).getResultList();
     }
 
-    public List<Member> findAll() {  // 모든 회원 조회
-       return em.createQuery("select m from Member m", Member.class).getResultList();
+    public Member findOne(Long id) {  // 회원 단건 조회
+        return em.find(Member.class, id);
     }
 
     public List<Member> findByName(String name) {  // 회원의 이름 조회
