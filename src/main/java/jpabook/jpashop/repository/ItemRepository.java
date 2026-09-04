@@ -17,7 +17,7 @@ public class ItemRepository {
         if(item.getId() == null) {
             em.persist(item);
         } else {
-            em.merge(item);
+            em.merge(item);  // merge를 실무에서 사용할 일이 많지는 않음
         }
     }
 
